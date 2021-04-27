@@ -1,0 +1,16 @@
+.el-input__inner {
+  background-color: transparent;
+  color: $app-title-color;
+  border-radius: 8px;
+  border: 1px solid $app-secondary-color;
+  border-radius: 8px;
+  font-size: 16px;
+
+  &::placeholder {
+    color: #b9b9b9;
+  }
+}
+
+.el-input .el-input__clear {
+  color: $app-title-color;
+}
