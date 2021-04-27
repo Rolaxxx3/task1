@@ -33,6 +33,7 @@
     <button
       type="submit"
       class="app__button login-form__button"
+      :disabled="isSubmitDisabled"
     >
       Log in
     </button>
@@ -49,6 +50,7 @@ export default {
       email: '',
       password: '',
     },
+    isSubmitDisabled: false,
   }),
   computed: {
     ...mapGetters({
@@ -60,11 +62,13 @@ export default {
       AUTH_USER: 'AUTH_USER',
     }),
     submit() {
+      this.isSubmitDisabled = true
       this.AUTH_USER(this.form).then(
         () => {
           this.$router.push('/profile')
         },
         err => {
+          this.isSubmitDisabled = false
           console.error(err)
         },
       )
